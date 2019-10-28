@@ -33,6 +33,7 @@ bower_components
 
 # Editor artefacts
 .idea
+.history
 
 # Other
 .DS_Store

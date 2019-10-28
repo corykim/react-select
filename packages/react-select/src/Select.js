@@ -1068,8 +1068,14 @@ export default class Select extends Component<Props, State> {
   };
   onControlTouchEnd = (event: SyntheticTouchEvent<HTMLElement>) => {
     if (this.userIsDragging) return;
+
+    /* Firefox on a desktop touch device calls this after opening the menu, which
+     closes it again. It fires both mousedown and touchend. */
+    if (isTouchCapable() && isFirefox()) return;
+
     this.onControlMouseDown(event);
   };
+
   onClearIndicatorTouchEnd = (event: SyntheticTouchEvent<HTMLElement>) => {
     if (this.userIsDragging) return;
 
@@ -1077,6 +1083,10 @@ export default class Select extends Component<Props, State> {
   };
   onDropdownIndicatorTouchEnd = (event: SyntheticTouchEvent<HTMLElement>) => {
     if (this.userIsDragging) return;
+
+    /* Firefox on a desktop touch device calls this after opening the menu, which
+     closes it again. It fires both mousedown and touchend. */
+    if (isTouchCapable() && isFirefox()) return;
 
     this.onDropdownIndicatorMouseDown(event);
   };

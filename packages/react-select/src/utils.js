@@ -268,3 +268,15 @@ export function isMobileDevice() {
     return false;
   }
 }
+
+// ==============================
+// Firefox Detector
+// ==============================
+
+export function isFirefox() {
+  try {
+    return navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+  } catch (e) {
+    return false;
+  }
+}
