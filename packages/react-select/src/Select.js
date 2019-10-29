@@ -25,6 +25,7 @@ import {
 import {
   classNames,
   cleanValue,
+  isFirefox,
   isTouchCapable,
   isMobileDevice,
   noop,
